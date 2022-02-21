@@ -19,12 +19,14 @@ SRC =   src/ctype/oisalnum.c \
 		src/mem/ocalloc.c \
 		src/mem/orealloc.c \
 		src/string/oatoi.c \
+		src/string/oitoa.c \
 		src/string/omemcpy.c \
 		src/string/omemset.c \
 		src/string/ostrcat.c \
 		src/string/ostrcmp.c \
 		src/string/ostrcpy.c \
 		src/string/ostrdup.c \
+		src/string/ostrformat.c \
 		src/string/ostrlen.c \
 		src/string/ostrrev.c \
 		src/write/oputchar.c \

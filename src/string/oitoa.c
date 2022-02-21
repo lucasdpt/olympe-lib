@@ -7,10 +7,11 @@
 
 #include <olympe/octype.h>
 #include <olympe/ostring.h>
+#include <olympe/omem.h>
 
 char *oitoa(llong nb)
 {
-    char str[sizeof(llong)];
+    char *str = ocalloc(sizeof(llong), 1);
     uint i = 0;
     llong new_nb = 0;
 
