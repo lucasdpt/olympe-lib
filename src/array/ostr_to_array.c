@@ -66,7 +66,7 @@ char **ostr_to_array(char *str, char *separators)
 
     if (result == NULL)
         return (NULL);
-    for (uint i = 0; str[i] != '\0'; i++) {
+    for (uint i = 0; str[i]; i++) {
         while (is_not_separator(str[i], separators) == 0 && str[i] != '\0')
             i++;
         result[j] = ocalloc(sizeof(char), (word_size(str, i, separators) + 1));
