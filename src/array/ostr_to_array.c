@@ -59,21 +59,26 @@ static uint for_boucle(char *str, char *separators, char *result, uint i)
     return (i);
 }
 
+/**
+ * Split string to array with separators
+ * Separators is a string, don't use a space
+ * Example: ostr_to_array(str, " ");
+ */
 char **ostr_to_array(char *str, char *separators)
 {
     char **result = ocalloc(sizeof(char *), (spcount(str, separators) + 2));
     uint j = 0;
 
-    if (result == NULL)
-        return (NULL);
+    if (!result)
+        return NULL;
     for (uint i = 0; str[i]; i++) {
         while (is_not_separator(str[i], separators) == 0 && str[i] != '\0')
             i++;
         result[j] = ocalloc(sizeof(char), (word_size(str, i, separators) + 1));
         if (!result[j])
-            return (NULL);
+            return NULL;
         i = for_boucle(str, separators, result[j], i);
         j++;
     }
-    return (result);
+    return result;
 }

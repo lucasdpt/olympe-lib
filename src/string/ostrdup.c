@@ -11,11 +11,11 @@
 
 char *ostrdup(char const *str)
 {
-    char *dest;
+    char *dest = NULL;
     ulong len = ostrlen(str);
 
     dest = ocalloc(sizeof(char), (len + 1));
-    if (dest == NULL)
+    if (!dest)
         return NULL;
     ostrcpy(dest, str);
     return dest;

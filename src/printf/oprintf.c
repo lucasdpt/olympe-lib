@@ -18,7 +18,7 @@ const flags_t FLAGS_FUNCT[] = {
         {'d', &(oprintnbr)}
 };
 
-PRIVATE int is_convert_type(char c)
+static int is_convert_type(char c)
 {
     for (int i = 0; i < 12; i++) {
         if (FLAGS_FUNCT[i].c == c)
@@ -27,7 +27,7 @@ PRIVATE int is_convert_type(char c)
     return (0);
 }
 
-PRIVATE void launch_function(char c, va_list args, char *flags)
+static void launch_function(char c, va_list args, char *flags)
 {
     for (int i = 0; i < 12; i++) {
         if (FLAGS_FUNCT[i].c == c) {
@@ -36,7 +36,7 @@ PRIVATE void launch_function(char c, va_list args, char *flags)
     }
 }
 
-PRIVATE int convert_modulo(char *str, int i, va_list args)
+static int convert_modulo(char *str, int i, va_list args)
 {
     char *flags = ocalloc(sizeof(char), ostrlen(str));
 

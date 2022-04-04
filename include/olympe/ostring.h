@@ -27,10 +27,12 @@ char *ostrrev(char *str);
 void *omemset(void *dest, int value, ulong size);
 void *omemcpy(void *dest, const void *src, ulong size);
 
+bool ostr_end_with(char const *src, char const *end);
+
 char *ostrformat(char const *str, ...);
-struct string_format_s {
+typedef struct string_format_s {
     char flag;
     char *(*handler)(char *, ullong *, va_list);
-};
+} string_format_t;
 
 #endif

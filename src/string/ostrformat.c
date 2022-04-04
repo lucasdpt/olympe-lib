@@ -8,9 +8,29 @@
 #include <olympe/octype.h>
 #include <olympe/ostring.h>
 #include <olympe/omem.h>
+#include <olympe/omath.h>
 #include <stdarg.h>
 
-PRIVATE char *format_string(char *buffer, ullong *size, va_list args)
+static char *format_string(char *buffer, ullong *size, va_list args);
+static char *format_char(char *buffer, ullong *size, va_list args);
+
+static const string_format_t formats[] = {
+    {'s', format_string},
+    {'c', format_char},
+    {0, NULL}
+};
+
+static char *format_char(char *buffer, ullong *size, va_list args)
+{
+    char str = va_arg(args, int);
+
+    buffer = orealloc(buffer, sizeof(char), *size, *size + 1);
+    buffer[*size - 1] = str;
+    *size += 1;
+    return buffer;
+}
+
+static char *format_string(char *buffer, ullong *size, va_list args)
 {
     char *str = va_arg(args, char *);
     ullong len = ostrlen(str);
@@ -23,12 +43,7 @@ PRIVATE char *format_string(char *buffer, ullong *size, va_list args)
     return buffer;
 }
 
-PRIVATE struct string_format_s formats[] = {
-    {'s', format_string},
-    {0, NULL}
-};
-
-PRIVATE char *call_handler(char flag, char *buffer, ullong *size, va_list args)
+static char *call_handler(char flag, char *buffer, ullong *size, va_list args)
 {
     for (ulong i = 0; formats[i].flag; i++) {
         if (formats[i].flag == flag)

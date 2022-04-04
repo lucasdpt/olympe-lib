@@ -15,10 +15,6 @@ typedef unsigned long ulong;
 typedef signed long long llong;
 typedef unsigned long long ullong;
 
-    #ifndef PRIVATE
-        #define PRIVATE static
-    #endif
-
     #ifndef NULL
         #define NULL (0)
     #endif

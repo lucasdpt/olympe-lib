@@ -7,6 +7,9 @@
 
 #include <olympe/octype.h>
 
+/*
+** Get the size of a string array
+*/
 ulong oarrstrlen(char **tab)
 {
     int count = 0;

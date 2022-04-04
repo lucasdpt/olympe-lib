@@ -7,7 +7,7 @@
 
 #include <olympe/octype.h>
 
-PRIVATE int check_isint(llong nb)
+static int check_isint(llong nb)
 {
     if (nb < -2147483648 || nb > 2147483647)
         return (0);
@@ -15,7 +15,7 @@ PRIVATE int check_isint(llong nb)
         return (nb);
 }
 
-PRIVATE void check_neg(int *isneg, char str)
+static void check_neg(int *isneg, char str)
 {
     if (str == 43)
         *isneg = 1;
@@ -23,7 +23,7 @@ PRIVATE void check_neg(int *isneg, char str)
         *isneg = -1;
 }
 
-PRIVATE int is_letter(char c)
+static int is_letter(char c)
 {
     if ((c < 48 && c > 57))
         return (1);

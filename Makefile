@@ -4,6 +4,7 @@
 ## File description:
 ## Makefile
 ##
+VERSION = 2.4.0
 
 SRC =   src/ctype/oisalnum.c \
 		src/ctype/oisalpha.c \
@@ -17,11 +18,13 @@ SRC =   src/ctype/oisalnum.c \
 		src/ctype/otolower.c \
 		src/ctype/otoupper.c \
 		src/mem/ocalloc.c \
+		src/mem/ofree.c \
 		src/mem/orealloc.c \
 		src/string/oatoi.c \
 		src/string/oitoa.c \
 		src/string/omemcpy.c \
 		src/string/omemset.c \
+		src/string/ostr_end_with.c \
 		src/string/ostrcat.c \
 		src/string/ostrcmp.c \
 		src/string/ostrcpy.c \
@@ -37,7 +40,8 @@ SRC =   src/ctype/oisalnum.c \
 		src/array/ostr_to_array.c \
 		src/printf/print_functions/oprintnbr.c \
 		src/printf/print_functions/oprintstr.c \
-		src/printf/oprintf.c
+		src/printf/oprintf.c \
+		src/math/oabs.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -51,6 +55,7 @@ $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ) \
 	&& $(ECHO) $(BOLD) $(GREEN)"► OLYMPE-LIB BUILD SUCCESS !"$(DEFAULT) \
 	|| ($(ECHO) $(BOLD) $(RED)"► OLYMPE-LIB BUILD FAILED"$(DEFAULT) && exit 1)
+	@$(ECHO) $(BOLD) $(GREEN) "OLYMPE-LIB -- VERSION:" $(VERSION) $(DEFAULT)
 
 clean:
 	@rm -f $(OBJ)

@@ -12,5 +12,8 @@
 
 void *ocalloc(ulong type, ulong size);
 void *orealloc(void *ptr, ulong type, ulong size, ulong newsize);
+void ofree(void *ptr);
+void ofree_chararray(void **ptr);
+void ofree_intarray(void **ptr, uint size);
 
 #endif
