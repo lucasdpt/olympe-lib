@@ -17,3 +17,14 @@ ulong ostrlen(char const *str)
         len++;
     return len;
 }
+
+ulong ostrlensep(char const *str, char const separator)
+{
+    ulong len = 0;
+
+    if (str == NULL)
+        return 0;
+    for (; *str && *str != separator; str++)
+        len++;
+    return len;
+}

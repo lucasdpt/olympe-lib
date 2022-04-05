@@ -41,7 +41,8 @@ SRC =   src/ctype/oisalnum.c \
 		src/printf/print_functions/oprintnbr.c \
 		src/printf/print_functions/oprintstr.c \
 		src/printf/oprintf.c \
-		src/math/oabs.c
+		src/math/oabs.c \
+		src/math/osqrt.c
 
 OBJ = $(SRC:.c=.o)
 

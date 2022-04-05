@@ -22,6 +22,7 @@ char *ostrcpy(char *dest, char const *src);
 char *ostrncpy(char *dest, char const *src, ulong n);
 char *ostrdup(char const *str);
 ulong ostrlen(char const *str);
+ulong ostrlensep(char const *str, char const separator);
 char *ostrrev(char *str);
 
 void *omemset(void *dest, int value, ulong size);
