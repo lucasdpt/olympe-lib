@@ -7,6 +7,7 @@
 
 #include <olympe/octype.h>
 #include <olympe/omem.h>
+#include <olympe/ostring.h>
 
 static bool is_not_separator(char c, char *separators)
 {
@@ -79,6 +80,8 @@ char **ostr_to_array(char *str, char *separators)
             return NULL;
         i = for_boucle(str, separators, result[j], i);
         j++;
+        if (i >= ostrlen(str))
+            break;
     }
     return result;
 }
