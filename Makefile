@@ -4,7 +4,7 @@
 ## File description:
 ## Makefile
 ##
-VERSION = 2.4.0
+VERSION = 2.4.2
 
 SRC =   src/ctype/oisalnum.c \
 		src/ctype/oisalpha.c \
@@ -16,11 +16,13 @@ SRC =   src/ctype/oisalnum.c \
 		src/ctype/oisspace.c \
 		src/ctype/oisupper.c \
 		src/ctype/otolower.c \
-		src/ctype/otoupper.c \
-		src/mem/ocalloc.c \
+		src/ctype/otoupper.c
+
+SRC += 	src/mem/ocalloc.c \
 		src/mem/ofree.c \
-		src/mem/orealloc.c \
-		src/string/oatoi.c \
+		src/mem/orealloc.c
+
+SRC += 	src/string/oatoi.c \
 		src/string/oitoa.c \
 		src/string/omemcpy.c \
 		src/string/omemset.c \
@@ -31,17 +33,21 @@ SRC =   src/ctype/oisalnum.c \
 		src/string/ostrdup.c \
 		src/string/ostrformat.c \
 		src/string/ostrlen.c \
-		src/string/ostrrev.c \
-		src/write/oputchar.c \
+		src/string/ostrrev.c
+
+SRC +=  src/write/oputchar.c \
 		src/write/oputnbr.c \
 		src/write/oputstr.c \
-		src/write/owrite.c \
-		src/array/oarrstrlen.c \
-		src/array/ostr_to_array.c \
-		src/printf/print_functions/oprintnbr.c \
+		src/write/owrite.c
+
+SRC += 	src/array/oarrstrlen.c \
+		src/array/ostr_to_array.c
+
+SRC +=  src/printf/print_functions/oprintnbr.c \
 		src/printf/print_functions/oprintstr.c \
-		src/printf/oprintf.c \
-		src/math/oabs.c \
+		src/printf/oprintf.c
+
+SRC +=  src/math/oabs.c \
 		src/math/osqrt.c
 
 OBJ = $(SRC:.c=.o)

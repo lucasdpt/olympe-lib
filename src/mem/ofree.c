@@ -8,7 +8,7 @@
 #include <olympe/octype.h>
 #include <stdlib.h>
 
-void ofree_intarray(void **ptr, uint size)
+void ofree_intarray(int **ptr, uint size)
 {
     if (!ptr)
         return;
@@ -17,7 +17,7 @@ void ofree_intarray(void **ptr, uint size)
     free(ptr);
 }
 
-void ofree_chararray(void **ptr)
+void ofree_chararray(char **ptr)
 {
     if (!ptr)
         return;
