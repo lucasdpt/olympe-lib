@@ -4,7 +4,7 @@
 ## File description:
 ## Makefile
 ##
-VERSION = 2.4.3
+VERSION = 2.4.4
 
 SRC =   src/ctype/oisalnum.c \
 		src/ctype/oisalpha.c \

@@ -61,10 +61,10 @@ static uint for_boucle(char *str, char *separators, char *result, uint i)
 }
 
 /**
- * Split string to array with separators
- * Separators is a string, don't use a space
- * Example: ostr_to_array(str, " ");
- */
+* Split string to array with separators
+* Separators is a string, don't use a space
+* Example: ostr_to_array(str, " ");
+*/
 char **ostr_to_array(char *str, char *separators)
 {
     char **result = ocalloc(sizeof(char *), (spcount(str, separators) + 2));

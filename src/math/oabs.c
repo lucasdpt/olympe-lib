@@ -6,8 +6,8 @@
 */
 
 /**
- * Returns the absolute value of the given value.
- */
+* Returns the absolute value of the given value.
+*/
 int oabs(int value)
 {
     return (value < 0 ? -value : value);
