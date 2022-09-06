@@ -4,7 +4,7 @@
 ## File description:
 ## Makefile
 ##
-VERSION = 2.4.4
+VERSION = 2.4.5
 
 SRC =   src/ctype/oisalnum.c \
 		src/ctype/oisalpha.c \
@@ -70,7 +70,6 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@rm -f ../$(NAME)
 
 re: fclean all
 
