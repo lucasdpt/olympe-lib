@@ -4,7 +4,7 @@
 ## File description:
 ## Makefile
 ##
-VERSION = 2.4.5
+VERSION = 2.4.6
 
 SRC =   src/ctype/oisalnum.c \
 		src/ctype/oisalpha.c \
@@ -19,7 +19,6 @@ SRC =   src/ctype/oisalnum.c \
 		src/ctype/otoupper.c
 
 SRC += 	src/mem/ocalloc.c \
-		src/mem/ofree.c \
 		src/mem/orealloc.c
 
 SRC += 	src/string/oatoi.c \
