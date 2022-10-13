@@ -8,13 +8,14 @@
 #include <olympe/octype.h>
 #include <olympe/ostring.h>
 #include <olympe/omem.h>
+#include <stdlib.h>
 
 void *orealloc(void *ptr, ulong type, ulong size, ulong newsize)
 {
     void *newptr;
 
     if (!newsize) {
-        ofree(ptr);
+        free(ptr);
         return NULL;
     }
     if (ptr == NULL)
@@ -23,6 +24,6 @@ void *orealloc(void *ptr, ulong type, ulong size, ulong newsize)
     if (newptr == NULL)
         return NULL;
     omemcpy(newptr, ptr, size);
-    ofree(ptr);
+    free(ptr);
     return newptr;
 }

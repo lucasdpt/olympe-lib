@@ -31,6 +31,7 @@ void *omemcpy(void *dest, const void *src, ulong size);
 bool ostr_end_with(char const *src, char const *end);
 
 char *ostrformat(char const *str, ...);
+char *vostrformat(char const *str, va_list args);
 typedef struct string_format_s {
     char flag;
     char *(*handler)(char *, ullong *, va_list);

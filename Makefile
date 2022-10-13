@@ -4,7 +4,7 @@
 ## File description:
 ## Makefile
 ##
-VERSION = 2.4.6
+VERSION = 2.5.0
 
 SRC =   src/ctype/oisalnum.c \
 		src/ctype/oisalpha.c \
@@ -30,9 +30,12 @@ SRC += 	src/string/oatoi.c \
 		src/string/ostrcmp.c \
 		src/string/ostrcpy.c \
 		src/string/ostrdup.c \
-		src/string/ostrformat.c \
 		src/string/ostrlen.c \
-		src/string/ostrrev.c
+		src/string/ostrrev.c \
+		src/string/strformat/format_char.c \
+		src/string/strformat/format_int.c \
+		src/string/strformat/format_string.c \
+		src/string/strformat/ostrformat.c \
 
 SRC +=  src/write/oputchar.c \
 		src/write/oputnbr.c \
@@ -48,6 +51,8 @@ SRC +=  src/printf/print_functions/oprintnbr.c \
 
 SRC +=  src/math/oabs.c \
 		src/math/osqrt.c
+
+SRC +=  src/logger/ologger.c
 
 OBJ = $(SRC:.c=.o)
 
