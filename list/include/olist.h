@@ -8,7 +8,9 @@
 #ifndef OLIST_H_
     #define OLIST_H_
 
-    #include "octype.h"
+    #ifndef NULL
+        #define NULL (0)
+    #endif
 
 typedef struct olist_s {
     void *data;
@@ -16,14 +18,16 @@ typedef struct olist_s {
     struct olist_s *prev;
 } olist_t;
 
-olist_t *olist_create();
+typedef unsigned int uint;
+
+olist_t *olist_create(void);
 void olist_destroy(olist_t *list);
 
-void olist_add(olist_t *list, void *data);
+int olist_add(olist_t *list, void *data);
 olist_t *olist_get(olist_t *list, uint index);
 void olist_remove(olist_t *list, uint index);
 olist_t *olist_find(olist_t *list, void *data);
-
-void olist_foreach(olist_t *list, void (*func)(void *));
+uint olist_size(olist_t *list);
+void olist_clear(olist_t *list);
 
 #endif /* !OLIST_H_ */

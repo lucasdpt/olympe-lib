@@ -4,11 +4,16 @@
 ## File description:
 ## Makefile
 ##
-VERSION = 0.0.1
+VERSION = 1.0.0
 
-SRC =   src/olist_data.c \
-		src/olist_manage.c \
-		src/olist_misc.c
+SRC =   src/olist_create.c \
+		src/olist_destroy.c \
+		src/olist_add.c \
+		src/olist_get.c \
+		src/olist_remove.c \
+		src/olist_find.c \
+		src/olist_size.c \
+		src/olist_clear.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -20,9 +25,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ) \
-	&& $(ECHO) $(BOLD) $(GREEN)"► OLYMPE-LIST-LIB BUILD SUCCESS !"$(DEFAULT) \
-	|| ($(ECHO) $(BOLD) $(RED)"► OLYMPE-LIST-LIB BUILD FAILED"$(DEFAULT) && exit 1)
-	@$(ECHO) $(BOLD) $(GREEN) "OLYMPE-LIST-LIB -- VERSION:" $(VERSION) $(DEFAULT)
+	&& $(ECHO) $(BOLD) $(GREEN)"► LIST-LIB BUILD SUCCESS !"$(DEFAULT) \
+	|| ($(ECHO) $(BOLD) $(RED)"► LIST-LIB BUILD FAILED"$(DEFAULT) && exit 1)
+	@$(ECHO) $(BOLD) $(GREEN) "LIST-LIB -- VERSION:" $(VERSION) $(DEFAULT)
 
 clean:
 	@rm -f $(OBJ)

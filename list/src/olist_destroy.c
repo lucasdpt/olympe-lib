@@ -1,25 +1,18 @@
 /*
 ** EPITECH PROJECT, 2023
-** olympe-lib
+** list
 ** File description:
-** olist_manage
+** olist_destroy.c
 */
 
 #include <stdlib.h>
 #include "olist.h"
 
-olist_t *olist_create()
-{
-    olist_t *list = malloc(sizeof(olist_t));
-
-    if (list == NULL)
-        return NULL;
-    list->prev = NULL;
-    list->next = NULL;
-    list->data = NULL;
-    return list;
-}
-
+/**
+ * @brief Destroy the olist object
+ * Free all content & the list
+ * @param list
+ */
 void olist_destroy(olist_t *list)
 {
     olist_t *tmp = NULL;
