@@ -12,22 +12,28 @@
         #define NULL (0)
     #endif
 
-typedef struct olist_s {
-    void *data;
-    struct olist_s *next;
-    struct olist_s *prev;
-} olist_t;
 
 typedef unsigned int uint;
+
+typedef struct olist_node_s {
+    void *data;
+    struct olist_node_s *next;
+    struct olist_node_s *prev;
+} olist_node_t;
+
+typedef struct olist_s {
+    olist_node_t *head;
+    olist_node_t *tail;
+    uint size;
+} olist_t;
 
 olist_t *olist_create(void);
 void olist_destroy(olist_t *list);
 
-int olist_add(olist_t *list, void *data);
-olist_t *olist_get(olist_t *list, uint index);
+int olist_add_node(olist_t *list, void *data);
+olist_node_t *olist_get_node(olist_t *list, uint index);
 void olist_remove(olist_t *list, uint index);
-olist_t *olist_find(olist_t *list, void *data);
-uint olist_size(olist_t *list);
+olist_node_t *olist_find(olist_t *list, void *data);
 void olist_clear(olist_t *list);
 
 #endif /* !OLIST_H_ */

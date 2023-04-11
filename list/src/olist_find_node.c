@@ -13,18 +13,21 @@
  * @param data
  * @return
  */
-olist_t *olist_find(olist_t *list, void *data)
+olist_node_t *olist_find_node(olist_t *list, void *data)
 {
-    olist_t *tmp = list;
+    olist_node_t *tmp = NULL;
 
     if (list == NULL)
         return NULL;
-    while (tmp->next != NULL) {
+    tmp = list->head;
+    if (tmp == NULL)
+        return NULL;
+    for (uint i = 0; i < list->size; i++) {
         if (tmp->data == data)
             return tmp;
+        if (tmp->next == NULL)
+            return NULL;
         tmp = tmp->next;
     }
-    if (tmp->data == data)
-        return tmp;
     return NULL;
 }

@@ -4,15 +4,14 @@
 ## File description:
 ## Makefile
 ##
-VERSION = 1.0.0
+VERSION = 1.0.1
 
 SRC =   src/olist_create.c \
 		src/olist_destroy.c \
-		src/olist_add.c \
-		src/olist_get.c \
-		src/olist_remove.c \
-		src/olist_find.c \
-		src/olist_size.c \
+		src/olist_add_node.c \
+		src/olist_get_node.c \
+		src/olist_remove_node.c \
+		src/olist_find_node.c \
 		src/olist_clear.c
 
 OBJ = $(SRC:.c=.o)

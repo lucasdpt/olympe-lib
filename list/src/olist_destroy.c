@@ -15,16 +15,18 @@
  */
 void olist_destroy(olist_t *list)
 {
-    olist_t *tmp = NULL;
+    olist_node_t *tmp = NULL;
 
     if (list == NULL)
         return;
-    while (list->next != NULL) {
-        tmp = list->next;
-        free(list->data);
-        free(list);
-        list = tmp;
+    tmp = list->head;
+    for (uint i = 0; i < list->size; i++) {
+        if (tmp->next == NULL) {
+            free(tmp);
+            break;
+        }
+        tmp = tmp->next;
+        free(tmp->prev);
     }
-    free(list->data);
     free(list);
 }

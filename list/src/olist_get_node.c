@@ -13,11 +13,16 @@
  * @param index
  * @return
  */
-olist_t *olist_get(olist_t *list, uint index)
+olist_node_t *olist_get_node(olist_t *list, uint index)
 {
-    olist_t *tmp = list;
+    olist_node_t *tmp = NULL;
 
     if (list == NULL)
+        return NULL;
+    if (index >= list->size)
+        return NULL;
+    tmp = list->head;
+    if (tmp == NULL)
         return NULL;
     for (uint i = 0; i < index; i++) {
         if (tmp->next == NULL)
