@@ -17,9 +17,12 @@
  */
 int olist_add_node(olist_t *list, void *data)
 {
-    olist_node_t *node = calloc(sizeof(olist_node_t), 1);
+    olist_node_t *node = NULL;
 
-    if (node == NULL)
+    if (!list)
+        return -1;
+    node = calloc(sizeof(olist_node_t), 1);
+    if (!node)
         return -1;
     node->data = data;
     node->next = NULL;

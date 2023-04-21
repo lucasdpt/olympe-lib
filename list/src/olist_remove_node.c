@@ -29,13 +29,7 @@ static void olist_node_remove(olist_t *list, olist_node_t *node)
     node->next->prev = node->prev;
 }
 
-/**
- * @brief Remove the data at the given index, and free associated node
- * If the list is empty, nothing is done
- * @param list
- * @param index
- */
-void olist_remove_node(olist_t *list, uint index)
+static void olist_remove_node_cond(olist_t *list, uint index, bool freeable)
 {
     olist_node_t *tmp = NULL;
 
@@ -52,7 +46,32 @@ void olist_remove_node(olist_t *list, uint index)
         tmp = tmp->next;
     }
     olist_node_remove(list, tmp);
-    free(tmp->data);
+    if (freeable)
+        free(tmp->data);
     free(tmp);
     list->size--;
+}
+
+/**
+ * @brief Remove the data at the given index, and free associated node
+ * and its data
+ * If the list is empty, nothing is done
+ * @param list
+ * @param index
+ */
+void olist_remove_node(olist_t *list, uint index)
+{
+    olist_remove_node_cond(list, index, true);
+}
+
+/**
+ * @brief Remove the data at the given index, and free associated node but not
+ * its data
+ * If the list is empty, nothing is done
+ * @param list
+ * @param index
+ */
+void olist_remove_node_wfree(olist_t *list, uint index)
+{
+    olist_remove_node_cond(list, index, false);
 }

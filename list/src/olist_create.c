@@ -22,5 +22,6 @@ olist_t *olist_create(void)
     list->head = NULL;
     list->tail = NULL;
     list->size = 0;
+    list->destructor = &default_destructor;
     return list;
 }

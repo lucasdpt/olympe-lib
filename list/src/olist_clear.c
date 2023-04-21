@@ -10,7 +10,7 @@
 
 /**
  * @brief Clear the list
- * Free all content and keep the first node (without its data)
+ * Clear the list and free all nodes and their data
  * @param list
  */
 void olist_clear(olist_t *list)
@@ -22,10 +22,13 @@ void olist_clear(olist_t *list)
     tmp = list->head;
     for (uint i = 0; i < list->size; i++) {
         if (tmp->next == NULL) {
+            (tmp->data) ? free(tmp->data) : 0;
             free(tmp);
             break;
         }
         tmp = tmp->next;
+        if (!tmp->prev->data)
+            free(tmp->prev->data);
         free(tmp->prev);
     }
     list->head = NULL;
